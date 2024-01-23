@@ -5,6 +5,7 @@ Hotel R&T est une application moderne conçue avec KivyMD, destinée à la gesti
 ![Logo de l'hotel R&T](/assets/htlR&T.png)
 
 ##Caractéristiques
+
 Création de Nouvelles Réservations : Permet aux utilisateurs de saisir des détails pour une nouvelle réservation d'hôtel.
 Gestion des Réservations Existantes : Offre la possibilité de consulter et de modifier les réservations existantes.
 Interface Utilisateur Réactive : Construite avec KivyMD pour une expérience utilisateur fluide et agréable.
