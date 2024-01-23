@@ -1,0 +1,20 @@
+{
+    "id": "James2146",
+    "Nom": "James",
+    "Prenom": "Bond",
+    "Email": "james.bond@mi6.uk",
+    "MotDePasse": "7043f02648377ce9268ae6d5fda3535c",
+    "Telephone": "0658989758",
+    "Date_arrivee": "2024-01-23",
+    "Date_depart": "2024-01-25",
+    "Nombre_Nuit": "2",
+    "Type_Chambre": "Premium",
+    "Nombre_personnes": "1",
+    "Nombre_petit-dej": "2",
+    "Options": {
+        "TV": false,
+        "Minibar": true,
+        "Balcon": true,
+        "Parking": true
+    }
+}

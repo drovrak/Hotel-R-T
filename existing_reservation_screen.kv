@@ -1,0 +1,46 @@
+<ExistingReservationWidget>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        spacing: 15
+        padding: "20dp"
+        adaptive_height: True
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Centrer dans la fenêtre
+
+        MDLabel:
+            text: 'Connexion Hôtel R&T'
+            halign: 'center'
+            adaptive_height: True
+            font_style: 'H2'
+
+        MDTextField:
+            id: username
+            hint_text: 'Nom d utilisateur'
+            box_spacing: "10dp"
+            mode: 'round'
+
+        MDRelativeLayout:
+            #size_hint: None, None
+            adaptive_height: True
+            pos_hint: {"center_x": 0.5, "center_y": 0.4}
+
+            MDTextField:
+                id: mot_passe
+                hint_text: "Mot de passe"
+                multiline: False
+                password: True
+                #box_spacing: "10dp"
+                mode: "round"
+
+        MDRaisedButton:
+            text: "Connexion"
+            on_release: root.login(username.text, mot_passe.text)
+            pos_hint: {'center_x': 0.5}
+            size_hint_x: None
+            width: dp(100)
+
+        MDRaisedButton:
+            text: "Annuler"
+            on_release: app.stop()
+            pos_hint: {'center_x': 0.5}
+            size_hint_x: None
+            width: dp(100)

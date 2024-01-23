@@ -1,0 +1,154 @@
+<ReservationWidget>:
+    # Configuration du conteneur principal
+    MDBoxLayout:
+        orientation: 'vertical'
+        spacing: 15
+        padding: "20dp"
+        adaptive_height: True
+
+        # Titre de l'écran
+        MDLabel:
+            text: 'Réservation Hôtel R&T'
+            halign: 'center'
+            adaptive_height: True
+            bold: True
+            font_style: 'H2'
+
+        # Champs de saisie pour les informations de réservation
+        MDTextField:
+            id: nom
+            hint_text: 'Nom'
+            box_spacing: "10dp"
+            mode: 'round'
+
+        MDTextField:
+            id: prenom
+            hint_text: 'Prénom'
+            box_spacing: "10dp"
+            mode: 'round'
+
+        MDTextField:
+            id: email
+            icon_right: "email"
+            hint_text: 'Email               Exemple : james.bond@mi6.com'
+            validator: "email"
+            mode: 'round'
+
+        MDRelativeLayout:
+            #size_hint: None, None
+            adaptive_height: True
+            pos_hint: {"center_x": 0.5, "center_y": 0.4}
+
+            MDTextField:
+                id: mot_passe
+                hint_text: "Mot de passe"
+                multiline: False
+                password: True
+                box_spacing: "10dp"
+                mode: "round"
+
+            MDIconButton:
+                icon: "eye-off"
+                pos_hint: {"center_y": .5}
+                pos: mot_passe.width - self.width + dp(8), 0
+                theme_text_color: "Hint"
+                on_release:
+                    self.icon = "eye" if self.icon == "eye-off" else "eye-off"
+                    mot_passe.password = False if mot_passe.password is True else True
+
+        MDTextField:
+            id: telephone
+            icon_right: "cellphone"
+            hint_text: 'Téléphone'
+            mode: 'round'
+            max_text_length: 10
+            min_text_lenght: 10
+            input_filter: 'int'
+
+        MDTextField:
+            id: nbr_pers
+            hint_text: 'Nombre de Personnes'
+            mode: 'round'
+            input_filter: 'int'
+
+        # Bouton pour sélectionner les dates de séjour
+        MDRaisedButton:
+            text: "Choisir vos dates de séjour"
+            on_release: root.show_date_picker()
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+        # Champs de texte pour afficher les dates sélectionnées
+        MDTextField:
+            id: arrival_date
+            readonly: True
+
+        MDTextField:
+            id: departure_date
+            readonly: True
+
+        MDTextField:
+            id: nbr_nuit
+            hint_text: 'Nombre de nuit'
+            mode: 'round'
+            input_filter: 'int'
+
+        MDTextField:
+            id: nbr_dej
+            hint_text: 'Nombre de petit-Déjeuner'
+            mode: 'round'
+            input_filter: 'int'
+
+        # Bouton pour sélectionner le type de chambre
+        MDRaisedButton:
+            id: type_chambre
+            text: 'Sélectionner votre type de chambre'
+            size_hint: None, None
+            size: 3 * dp(48), dp(48)
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+            on_release: root.menu.open()
+
+        # Section pour les options supplémentaires avec interrupteurs
+        MDBoxLayout:
+            adaptive_height: True
+            MDSwitch:
+                id: option_tv
+            MDLabel:
+                text: 'TV'
+                theme_text_color: 'Custom'
+
+            MDSwitch:
+                id: option_minibar
+            MDLabel:
+                text: 'Minibar'
+                theme_text_color: 'Custom'
+
+            MDSwitch:
+                id: option_balcon
+            MDLabel:
+                text: 'Balcon vue mer'
+                theme_text_color: 'Custom'
+
+            MDSwitch:
+                id: option_parking
+            MDLabel:
+                text: 'Place de parking'
+                theme_text_color: 'Custom'
+
+        # Boutons Envoyer et Annuler
+        MDBoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            pos_hint: {"center_x": 0.5, "center_y": 0.4}
+            size_hint: None, None
+            spacing: 10
+            height: dp(48)  # Hauteur des boutons
+
+            MDRaisedButton:
+                text: 'Envoyer'
+                on_release: root.submit()
+                size_hint_x: None
+                width: dp(100)
+
+            MDRaisedButton:
+                text: 'Annuler'
+                on_release: app.root.current = 'welcome'

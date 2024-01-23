@@ -1,0 +1,91 @@
+<WelcomeScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        spacing: dp(20)
+        padding: dp(20)
+        Image:
+            source: "assets/htlR&T.png"
+            allow_stretch: True
+            keep_ratio: True
+            size_hint_y: None
+            height: dp(500)  # Hauteur souhaitée de l'image
+            size_hint: 1, None
+        MDBoxLayout:  # Ce BoxLayout contient les deux cartes côte à côte
+            orientation: 'horizontal'
+            spacing: dp(20)
+            size_hint: 1, None
+           # width: "560dp"  # Assurez-vous que cela est suffisant pour les deux cartes plus l'espacement
+            pos_hint: {'center_x': 0.5}
+            height: dp(380)
+            MDCard:
+                size_hint: 0.5, 1
+                #size: "280dp", "380dp"
+                pos_hint: {'center_x': 0.5}
+                elevation: 2
+                #radius: [dp(8)]  # Bords arrondis
+                md_bg_color: 0, 1, 1, 1 # Fond blanc ou couleur de votre choix
+                on_release: app.root.current = 'existing_reservation'
+
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    Image:
+                        source: "assets/existing_reservation_icon.png"  # Remplacez par le chemin de votre image
+                        allow_stretch: True
+                        keep_ratio: False
+                        size_hint_y: 0.75
+
+                    MDLabel:
+                        text: "Déjà Clients ?"
+                        theme_text_color: "Primary"
+                        halign: "center"
+                        size_hint_y: 0.15
+                        font_style: "Subtitle1"
+
+                    MDLabel:
+                        text: "Venez vérifier votre réservation"
+                        theme_text_color: "Secondary"
+                        halign: "center"
+                        size_hint_y: 0.10
+                        font_style: "Caption"
+            MDCard:
+                size_hint: 0.5, 1
+                #size: "280dp", "380dp"
+                pos_hint: {'center_x': 0.5}
+                elevation: 2
+                #radius: [dp(8)]  # Bords arrondis
+                md_bg_color: 0, 1, 1, 1 # Fond blanc ou couleur de votre choix
+                on_release: app.root.current = 'new_reservation'
+
+
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    Image:
+                        source: "assets/new_reservation_icon.png"  # Remplacez par le chemin de votre image
+                        allow_stretch: True
+                        keep_ratio: False
+                        size_hint_y: 0.75
+
+                    MDLabel:
+                        text: "Nouvelle Réservation"
+                        theme_text_color: "Primary"
+                        halign: "center"
+                        size_hint_y: 0.15
+                        font_style: "Subtitle1"
+
+                    MDLabel:
+                        text: "Réserver vos prochaines vacances chez nous"
+                        theme_text_color: "Secondary"
+                        halign: "center"
+                        size_hint_y: 0.10
+                        font_style: "Caption"
+
+            # Carte pour sélectionner une réservation existante
+           
+
+
+        # Widget:  # Espace vide pour équilibrer l'alignement
+        #     size_hint_y: None
+        #     height: self.parent.height / 3
